@@ -35,6 +35,8 @@ const schema = z
             required_error: "O email deve ser preenchido"
         }).email({
             message: 'Insira um endereço de email válido'
+        }).max( 255, {
+            message: 'O valor máximo de caracteres para o campo é de 255'
         }),
         password: z.string({
             required_error: "A senha deve ser preenchida"
