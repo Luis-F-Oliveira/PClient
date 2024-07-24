@@ -128,7 +128,7 @@ export default function Page() {
                 </Link>
               </Button>
               <Button type='button' variant='link'>
-                <Link href=''>
+                <Link href='/auth/forgot-password'>
                   Esqueci minha senha
                 </Link>
               </Button>

@@ -55,7 +55,7 @@ const schema = z
     })
     .refine((data) => data.password === data.password_confirmation, {
         message: 'As senhas devem ser iguais',
-        path: ["confirmPassword"]
+        path: ["password_confirmation"]
     })
 
 type IForm = z.infer<typeof schema>
