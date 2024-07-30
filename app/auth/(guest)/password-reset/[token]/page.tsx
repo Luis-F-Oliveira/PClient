@@ -104,7 +104,7 @@ export default function Page() {
                 </FormItem>
               )}
             />
-            <Button type='submit' disabled={isSubmitting}>
+            <Button type='submit' isSubmitting={isSubmitting}>
               Alterar
             </Button>
           </form>

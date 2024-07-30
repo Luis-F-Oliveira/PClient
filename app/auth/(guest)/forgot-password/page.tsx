@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/card"
 import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
+import { toast } from '@/components/ui/use-toast'
 
 const schema = z.object({
     email: z.string({
@@ -37,8 +38,6 @@ const schema = z.object({
 type IForm = z.infer<typeof schema>
 
 export default function Page() {
-    const [message, setMessage] = React.useState('')
-
     const { forgotPassword } = useAuth({
         middleware: 'guest'
     })
@@ -52,11 +51,17 @@ export default function Page() {
     const onSubmit = async (values: IForm) => {
         await forgotPassword(values)
             .then(() => {
-                setMessage('Um email de recuperação de senha foi enviado para o seu endereço de email.')
+                toast({
+                    title: 'Email enviado',
+                    description: 'Um email de recuperação de senha foi enviado para o seu endereço de email.'
+                })
                 form.reset()
             })
             .catch(() => {
-                setMessage('Email de recuperação não foi encontrado em nosso banco de dados.')
+                toast({
+                    title: 'Problemas ao enviar email',
+                    description: 'Email de recuperação não foi encontrado em nosso banco de dados.'
+                })
             })
     }
 
@@ -80,14 +85,12 @@ export default function Page() {
                                     <FormDescription>
                                         Digite o email cadastrado.
                                     </FormDescription>
-                                    <FormMessage>
-                                        {message}
-                                    </FormMessage>
+                                    <FormMessage />
                                 </FormItem>
                             )}
                         />
                         <div>
-                            <Button type='submit' disabled={isSubmitting}>
+                            <Button type='submit' isSubmitting={isSubmitting}>
                                 Enviar
                             </Button>
                             <Button type='button' variant='link'>

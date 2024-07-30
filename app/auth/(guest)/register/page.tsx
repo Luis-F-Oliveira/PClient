@@ -23,6 +23,7 @@ import {
 import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
 import { cn } from "@/lib/utils"
+import { toast } from '@/components/ui/use-toast'
 
 const schema = z
     .object({
@@ -74,6 +75,14 @@ export default function Page() {
 
     const onSubmit = async (values: IForm) => {
         await register(values)
+        .catch((err) => {
+            const { message } = err.response.data
+
+            toast({
+                title: 'Erro ao se registrar',
+                description: message
+            })
+        })
     }
 
     return (
@@ -138,8 +147,7 @@ export default function Page() {
                         />
                         <div>
                             <Button
-                                className={cn(isSubmitting ? 'cursor-no-drop' : 'cursor-pointer')}
-                                disabled={isSubmitting}
+                                isSubmitting={isSubmitting}
                                 type='submit'
                             >
                                 Cadastrar

@@ -24,6 +24,7 @@ import Link from 'next/link'
 import { cn } from '@/lib/utils'
 import { useAuth } from '@/hooks/auth'
 import { Checkbox } from '@/components/ui/checkbox'
+import { toast } from '@/components/ui/use-toast'
 
 const schema = z.object({
   email: z.string({
@@ -59,6 +60,16 @@ export default function Page() {
 
   const onSubmit = async (values: IForm) => {
     await login(values)
+      .catch((err) => {
+        const { status } = err.response
+
+        if (status === 422) {
+          toast({
+            title: 'Falha na autenticação',
+            description: 'Verifique se o email e a senha estão corretos'
+          })
+        }
+      })
   }
 
   return (
@@ -116,8 +127,7 @@ export default function Page() {
             />
             <div>
               <Button
-                className={cn(isSubmitting ? 'cursor-no-drop' : 'cursor-pointer')}
-                disabled={isSubmitting}
+                isSubmitting={isSubmitting}
                 type='submit'
               >
                 Entrar
