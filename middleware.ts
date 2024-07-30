@@ -14,5 +14,9 @@ export default async function middleware(req: NextRequest) {
         return NextResponse.redirect(new URL('/auth/login', req.url))
     }
 
+    if (jwt && req.nextUrl.pathname.startsWith('/auth')) {
+        return NextResponse.redirect(new URL('/', req.url))
+    }
+
     return NextResponse.next()
 }

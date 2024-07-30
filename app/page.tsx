@@ -1,12 +1,13 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { ModeToggle } from '@/components/ui/toggle-theme'
 import { useAuth } from '@/hooks/auth'
+import Link from 'next/link'
 import React from 'react'
 
 export default function Page() {
   const { user, logout, resendEmailVerification } = useAuth({})
-
   return (
     <div className='w-screen h-screen flex flex-col justify-center items-center gap-3'>
       <section>
@@ -24,6 +25,12 @@ export default function Page() {
         </Button>
         <Button onClick={resendEmailVerification}>
           Verificar Email
+        </Button>
+        <ModeToggle />
+        <Button variant='link'>
+          <Link href='/admin/users'>
+            Usuários
+          </Link>
         </Button>
       </div>
     </div>
