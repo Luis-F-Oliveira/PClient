@@ -4,11 +4,16 @@ import { Inter as FontSans } from "next/font/google"
 import { cn } from "@/lib/utils"
 import { Toaster } from "@/components/ui/toaster"
 import { ThemeProvider } from "@/provider/theme-provider"
+import { Metadata } from "next"
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 })
+
+export const metadata: Metadata = {
+  title: "Principal"
+}
 
 export default function RootLayout({
   children,

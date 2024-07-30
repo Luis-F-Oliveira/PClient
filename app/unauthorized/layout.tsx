@@ -2,10 +2,10 @@ import { Metadata } from "next"
 import React from "react"
 
 export const metadata: Metadata = {
-    title: "Admin"
+    title: "Unauthorized"
 }
 
-export default function AdminLayout({
+export default function UnauthorizedLayout({
     children,
 }: Readonly<{
     children: React.ReactNode
