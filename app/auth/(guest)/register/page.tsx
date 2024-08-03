@@ -64,7 +64,7 @@ type IForm = z.infer<typeof schema>
 export default function Page() {
     const { register } = useAuth({ 
         middleware: 'guest', 
-        redirectIfAuthenticated: '/' 
+        redirectIfAuthenticated: '/public' 
     })
 
     const form = useForm<IForm>({
@@ -145,7 +145,7 @@ export default function Page() {
                                 </FormItem>
                             )}
                         />
-                        <div>
+                        <div className='flex items-center'>
                             <Button
                                 isSubmitting={isSubmitting}
                                 type='submit'

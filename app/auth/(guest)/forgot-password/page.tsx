@@ -89,7 +89,7 @@ export default function Page() {
                                 </FormItem>
                             )}
                         />
-                        <div>
+                        <div className='flex items-center'>
                             <Button type='submit' isSubmitting={isSubmitting}>
                                 Enviar
                             </Button>

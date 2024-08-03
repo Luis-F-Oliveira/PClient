@@ -1,3 +1,4 @@
+import Navbar from "@/components/navbar/navbar"
 import { Metadata } from "next"
 import React from "react"
 
@@ -11,8 +12,16 @@ export default function AdminLayout({
     children: React.ReactNode
 }>) {
     return (
-        <div className="container pt-5">
-            {children}
-        </div>
+        <>
+            <header>
+                <Navbar />
+            </header>
+            <main className="container">
+                {children}
+            </main>
+            <footer>
+
+            </footer>
+        </>
     )
 }
