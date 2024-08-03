@@ -9,7 +9,7 @@ export default function AccessDenied() {
           Acesso negado. Você não tem permissão para acessar esta página.
         </p>
         <div className="mt-6">
-          <Link href="/" className="text-indigo-600 hover:text-indigo-500">
+          <Link href="/public" className="text-indigo-600 hover:text-indigo-500">
               Voltar para a página inicial
           </Link>
         </div>
