@@ -9,18 +9,13 @@ export const config = {
 
 export default async function middleware(req: NextRequest) {
     const jwt = req.cookies.get('jwt')?.value
-    const admin = req.cookies.get('admin')?.value
-
-    if (!admin && req.nextUrl.pathname.startsWith('/admin')) {
-        return NextResponse.redirect(new URL('/unauthorized', req.url))
-    }
 
     if (!jwt && !req.nextUrl.pathname.startsWith('/auth')) {
         return NextResponse.redirect(new URL('/auth/login', req.url))
     }
 
     if (jwt && req.nextUrl.pathname.startsWith('/auth')) {
-        return NextResponse.redirect(new URL('/', req.url))
+        return NextResponse.redirect(new URL('/public', req.url))
     }
 
     return NextResponse.next()

@@ -1,4 +1,5 @@
-import Navbar from "@/components/navbar/navbar"
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { AppSidebar } from "@/partials/sidebar"
 import React from "react"
 
 export default function RootLayout({
@@ -7,16 +8,12 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <>
-      <header>
-        <Navbar />
-      </header>
+    <SidebarProvider defaultOpen={false}>
+      <AppSidebar />
       <main className="container">
+        <SidebarTrigger />
         {children}
       </main>
-      <footer>
-
-      </footer>
-    </>
+    </SidebarProvider>
   )
 }

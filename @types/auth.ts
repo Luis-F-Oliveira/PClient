@@ -7,17 +7,13 @@ export interface IUser {
     updated_at: string
 }
 
-export interface IRole {
+export interface IPersonal {
     id: number
-    name: string
-    key: string
+    age: number
+    weight: number
+    heigth: number
+    health_goals: string
+    user_id: number
     created_at: string
     updated_at: string
-}
-
-export interface IPermission {
-    id: number
-    user_id: number
-    role_id: number
-    role: IRole
 }
