@@ -3,7 +3,7 @@
 ```
 git clone https://github.com/Luis-F-Oliveira/PClient.git
 cd ./PClient
-npm run install
+npm install
 ```
 
 # Arquivo .env
