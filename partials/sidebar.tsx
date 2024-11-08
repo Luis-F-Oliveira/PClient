@@ -23,7 +23,15 @@ import {
 } from "@/components/ui/sidebar"
 import { ModeToggle } from "@/components/ui/toggle-theme"
 import { useAuth } from "@/hooks/auth"
-import { BicepsFlexed, Calendar, Cog, HeartPulse, MessageCircleMore, Users, WheatOff } from 'lucide-react'
+import { 
+    BicepsFlexed, 
+    Calendar, 
+    Cog, 
+    HeartPulse, 
+    MessageCircleMore, 
+    Users, 
+    WheatOff
+} from 'lucide-react'
 import Link from "next/link"
 
 export function AppSidebar() {
@@ -35,7 +43,7 @@ export function AppSidebar() {
             <SidebarHeader />
             <SidebarContent>
                 <SidebarGroup>
-                    <SidebarGroupLabel>Requisitos Funcionais</SidebarGroupLabel>
+                    <SidebarGroupLabel>Home</SidebarGroupLabel>
                     <SidebarGroupContent>
                         <SidebarMenu>
                             <SidebarMenuItem>

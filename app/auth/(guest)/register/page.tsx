@@ -22,7 +22,6 @@ import {
 } from "@/components/ui/card"
 import Link from 'next/link'
 import { useAuth } from '@/hooks/auth'
-import { cn } from "@/lib/utils"
 import { toast } from '@/components/ui/use-toast'
 
 const schema = z
@@ -64,7 +63,7 @@ type IForm = z.infer<typeof schema>
 export default function Page() {
     const { register } = useAuth({ 
         middleware: 'guest', 
-        redirectIfAuthenticated: '/public' 
+        redirectIfAuthenticated: '/public/health_tips' 
     })
 
     const form = useForm<IForm>({

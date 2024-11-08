@@ -49,7 +49,7 @@ type IForm = z.infer<typeof schema>
 export default function Page() {
   const { login } = useAuth({
     middleware: 'guest',
-    redirectIfAuthenticated: '/public'
+    redirectIfAuthenticated: '/public/health_tips'
   })
 
   const form = useForm<IForm>({
