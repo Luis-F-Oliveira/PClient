@@ -1,6 +1,6 @@
 'use client'
 
-import { IExercise } from '@/@types/organization'
+import { IDiet, IExercise } from '@/@types/organization'
 import { Button } from '@/components/ui/button'
 import {
     Card,
@@ -22,7 +22,7 @@ import useSWR from 'swr'
 
 export const Diet = () => {
     const { toast } = useToast()
-    const { data: data = [], mutate } = useSWR<IExercise[]>(
+    const { data: data = [], mutate } = useSWR<IDiet[]>(
         '/api/diets', async () =>
         axios
             .get('/api/diets')

@@ -77,9 +77,9 @@ export function AppSidebar() {
                         <SidebarMenu>
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
-                                    <Link href=''>
+                                    <Link href='/public/forum'>
                                         <Users />
-                                        <span>Fóruns e Grupos</span>
+                                        <span>Fóruns</span>
                                     </Link>
                                 </SidebarMenuButton>
                             </SidebarMenuItem>
@@ -87,7 +87,7 @@ export function AppSidebar() {
                         <SidebarMenu>
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
-                                    <Link href=''>
+                                    <Link href='/public/event'>
                                         <Calendar />
                                         <span>Eventos</span>
                                     </Link>
@@ -97,7 +97,7 @@ export function AppSidebar() {
                         <SidebarMenu>
                             <SidebarMenuItem>
                                 <SidebarMenuButton asChild>
-                                    <Link href=''>
+                                    <Link href='/public/witness'>
                                         <MessageCircleMore />
                                         <span>
                                             Testemunhos
